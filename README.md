@@ -1,5 +1,3 @@
-html
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -306,6 +304,24 @@ html
                 </div>
             </div>
 
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M5 3v4M19 3v4M5 21v-4M19 21v-4M2 12h3m14 0h3M7 12c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z"></path>
+                            <path d="M9 12c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3z"></path>
+                        </svg>
+                        Loop Channel Assignment
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <p>Loop Channel Assignment is <a href="https://docs.google.com/spreadsheets/d/1Z4xVx2gqcWqaX_h2xDgRBTwDiTzK9ypVRiJNqTCVAbs/edit?gid=324513968#gid=324513968" target="_blank" class="accent-text">HERE</a>.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -318,7 +334,7 @@ html
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
 
-                    // Close all accordion items
+                    // Close all accordion items to maintain a clean view
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
