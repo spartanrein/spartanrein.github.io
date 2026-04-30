@@ -23,7 +23,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-family);
-            line-height: 1.6; /* Increased for better readability */
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             width: 100%;
@@ -34,11 +34,11 @@
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px clamp(15px, 5vw, 35px); /* More air on top and sides */
+            padding: 40px clamp(15px, 5vw, 35px);
         }
 
         header {
-            margin-bottom: 45px; /* More separation from header to content */
+            margin-bottom: 45px;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 20px;
         }
@@ -62,7 +62,7 @@
         h2 {
             font-size: 19px;
             font-weight: 600;
-            margin: 55px 0 25px; /* Big jump between categories */
+            margin: 55px 0 25px;
             color: var(--accent-color);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -84,7 +84,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 26px 0; /* More height for the "bars" */
+            padding: 26px 0;
             background: none;
             border: none;
             color: var(--text-color);
@@ -140,11 +140,11 @@
 
         .accordion-item.active .accordion-content {
             max-height: 2000px;
-            padding-bottom: 35px; /* Room at the bottom of the open area */
+            padding-bottom: 35px;
         }
 
         .content-block {
-            margin-bottom: 24px; /* More space between info units */
+            margin-bottom: 24px;
         }
 
         .label {
@@ -239,21 +239,59 @@
             <div class="accordion-item">
                 <button class="accordion-header">
                     <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"></path><path d="M5 21V10.85"></path><path d="M19 21V10.85"></path><path d="M9 21v-4a2 2 0 0 1 4 0v4"></path></svg>
+                        Venue Details
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-block">
+                        <span class="label">Name (EN)</span>
+                        <p>SHANGHAI WORLD EXPO EXHIBITION & CONVENTION CENTER</p>
+                    </div>
+                    <div class="content-block">
+                        <span class="label">Address (EN)</span>
+                        <p>1099 Guo Zhan Road, Shanghai, China</p>
+                    </div>
+                    <div class="content-block" style="border-top: 1px solid #222; padding-top: 15px;">
+                        <span class="label">名称 (ZH)</span>
+                        <p>上海世博展览馆</p>
+                    </div>
+                    <div class="content-block">
+                        <span class="label">地址 (ZH)</span>
+                        <p>上海市浦东新区国展路1099号</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         Hotel Details
                     </div>
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="content-block">
-                        <span class="label">Hotel</span>
-                        <p>上海世博萨和酒店 (SAVHE Hotel)</p>
+                    <div class="content-inner">
+                        <div class="content-block">
+                            <span class="label">Hotel Name (EN)</span>
+                            <p>SAVHE Hotel Shanghai World Expo</p>
+                        </div>
+                        <div class="content-block">
+                            <span class="label">Address (EN)</span>
+                            <p>No. 410 Xueye Road, Pudong New Area, Shanghai</p>
+                        </div>
+                        <div class="content-block" style="border-top: 1px solid #222; padding-top: 15px;">
+                            <span class="label">酒店名称 (ZH)</span>
+                            <p>上海世博萨和酒店</p>
+                        </div>
+                        <div class="content-block">
+                            <span class="label">地址 (ZH)</span>
+                            <p>上海市浦东新区雪野路 410 号</p>
+                        </div>
+                        <a href="tel:+862168818869" class="accent-text">CALL FRONT DESK →</a>
                     </div>
-                    <div class="content-block">
-                        <span class="label">Address</span>
-                        <p>上海市浦东新区雪野路 410 号</p>
-                    </div>
-                    <a href="tel:+862168818869" class="accent-text">CALL HOTEL →</a>
                 </div>
             </div>
             
