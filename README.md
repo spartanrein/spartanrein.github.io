@@ -11,6 +11,7 @@
             --accent-color: #fceb00; /* Hyrox Yellow */
             --border-color: #333333;
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --content-font-size: 15px; /* Standardized size from Floor Plan */
         }
 
         * {
@@ -118,7 +119,7 @@
             overflow: hidden;
             transition: max-height 0.3s ease-in-out, padding 0.3s ease;
             color: #e0e0e0;
-            font-size: 15px;
+            font-size: var(--content-font-size); /* Standardized */
         }
 
         .accordion-item.active .accordion-content {
@@ -147,14 +148,14 @@
 
         .accent-text:hover { border-bottom-color: var(--accent-color); }
 
-        /* TECH TABLE - NO LINES VERSION */
+        /* TECH TABLE */
         .tech-table {
             width: 100%;
-            border-collapse: collapse; /* Changed from separate to remove spacing */
+            border-collapse: collapse;
             margin-top: 15px;
             background-color: #000000;
             table-layout: fixed;
-            border: none; /* Removed outer border */
+            border: none;
         }
 
         .tech-table th {
@@ -165,17 +166,17 @@
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 1px solid var(--border-color); /* Kept header line for structure */
+            border-bottom: 1px solid var(--border-color);
         }
 
         .tech-table th:nth-child(2) { text-align: center; }
 
         .tech-table td {
             padding: 10px 12px;
-            border: none; /* REMOVED ALL TD LINES */
+            border: none;
             color: #ffffff;
             font-family: "Courier New", Courier, monospace;
-            font-size: 14px;
+            font-size: var(--content-font-size); /* Standardized */
             background-color: #000000;
         }
 
