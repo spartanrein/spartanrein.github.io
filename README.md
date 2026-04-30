@@ -219,6 +219,7 @@
 
     <div class="container">
         <header>
+            <h1>Hyrox</h1>
             <h1>OPS PAGE – SHANGHAI</h1>
             <p class="subtitle">16–17 MAY 2026 | INTERNAL USE ONLY</p>
         </header>
