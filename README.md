@@ -1,5 +1,3 @@
-html
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -140,7 +138,7 @@ html
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 600px; /* Large enough for content */
+            max-height: 800px; 
             padding-bottom: 30px;
         }
 
@@ -190,12 +188,12 @@ html
             <p class="subtitle">16–17 MAY 2026 | INTERNAL USE ONLY</p>
         </header>
 
-        <h2>Event Details</h2>
+        <h2>Event Logistics</h2>
 
         <div class="accordion">
             
-            <div class="accordion-item active">
-                <button class="accordion-header" aria-expanded="true">
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
                     <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -227,7 +225,7 @@ html
                     </div>
 
                     <div style="margin-top: 20px;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=SAVHE+Hotel+Shanghai+World+Expo" target="_blank" class="accent-text">
+                        <a href="https://maps.google.com/?q=SAVHE+Hotel+Shanghai+World+Expo" target="_blank" class="accent-text">
                             OPEN IN MAPS →
                         </a>
                     </div>
@@ -238,17 +236,53 @@ html
                 <button class="accordion-header" aria-expanded="false">
                     <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                            <path d="M3 21h18"></path>
+                            <path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"></path>
+                            <path d="M5 21V10.85"></path>
+                            <path d="M19 21V10.85"></path>
+                            <path d="M9 21v-4a2 2 0 0 1 4 0v4"></path>
                         </svg>
-                        Race Week Syntax
+                        Event Venue
                     </div>
                     <svg class="icon chevron" viewBox="0 0 24 24">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </button>
                 <div class="accordion-content">
-                    <p>The link to the Race Week Syntax documentation is <a href="#" class="accent-text">HERE</a>.</p>
+                    <div class="content-block">
+                        <span class="label">Venue Name</span>
+                        <p>上海世博展览馆</p>
+                        <p style="color: #888;">SHANGHAI WORLD EXPO EXHIBITION & CONVENTION CENTER</p>
+                    </div>
+
+                    <div class="content-block">
+                        <span class="label">Address</span>
+                        <p>上海市浦东新区国展路1099号</p>
+                        <p style="color: #888;">1099 Guo Zhan Road, Pudong New Area, Shanghai</p>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <a href="https://maps.google.com/?q=Shanghai+World+Expo+Exhibition+and+Convention+Center" target="_blank" class="accent-text">
+                            OPEN IN MAPS →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                        </svg>
+                        Start Wave
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <p>The link to the start wave is <a href="https://docs.google.com/spreadsheets/d/1XYsb3mp7i4cLr715llGVElfHz_wbbpjpSXmVr6P8lNA/edit?gid=1391778420#gid=1391778420" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
 
@@ -264,7 +298,7 @@ html
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
 
-                    // Close all accordion items to maintain a clean view
+                    // Close all accordion items
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
