@@ -10,6 +10,7 @@
             --accent-color: #fceb00; /* Hyrox Yellow */
             --border-color: #333333;
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --content-font-size: 15px;
         }
 
         /* Fluid Reset */
@@ -99,6 +100,8 @@
             display: flex;
             align-items: center;
             padding-right: 15px;
+            flex: 1;
+            min-width: 0;
         }
 
         .icon {
@@ -134,13 +137,17 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 15px;
+            font-size: var(--content-font-size);
             color: #ccc;
         }
 
         .accordion-item.active .accordion-content {
             max-height: 2000px;
             padding-bottom: 35px;
+        }
+
+        .content-inner {
+            line-height: 1.6;
         }
 
         .content-block {
@@ -245,21 +252,23 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="content-block">
-                        <span class="label">Name (EN)</span>
-                        <p>SHANGHAI WORLD EXPO EXHIBITION & CONVENTION CENTER</p>
-                    </div>
-                    <div class="content-block">
-                        <span class="label">Address (EN)</span>
-                        <p>1099 Guo Zhan Road, Shanghai, China</p>
-                    </div>
-                    <div class="content-block" style="border-top: 1px solid #222; padding-top: 15px;">
-                        <span class="label">名称 (ZH)</span>
-                        <p>上海世博展览馆</p>
-                    </div>
-                    <div class="content-block">
-                        <span class="label">地址 (ZH)</span>
-                        <p>上海市浦东新区国展路1099号</p>
+                    <div class="content-inner">
+                        <div class="content-block">
+                            <span class="label">Name (EN)</span>
+                            <p>SHANGHAI WORLD EXPO EXHIBITION & CONVENTION CENTER</p>
+                        </div>
+                        <div class="content-block">
+                            <span class="label">Address (EN)</span>
+                            <p>1099 Guo Zhan Road, Shanghai, China</p>
+                        </div>
+                        <div class="content-block" style="border-top: 1px solid #222; padding-top: 15px;">
+                            <span class="label">名称 (ZH)</span>
+                            <p>上海世博展览馆</p>
+                        </div>
+                        <div class="content-block">
+                            <span class="label">地址 (ZH)</span>
+                            <p>上海市浦东新区国展路1099号</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -304,7 +313,9 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <p>The Floor Plan is available <a href="https://drive.google.com/file/d/1pqxaQhYyO0VfSDxzC1daZDAVlMFkqmO0/view?usp=sharing" target="_blank" class="accent-text">HERE</a>.</p>
+                    <div class="content-inner">
+                        <p>The Floor Plan is available <a href="https://drive.google.com/file/d/1pqxaQhYyO0VfSDxzC1daZDAVlMFkqmO0/view?usp=sharing" target="_blank" class="accent-text">HERE</a>.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -320,7 +331,24 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <p>Check the Start Wave sheet <a href="https://docs.google.com/spreadsheets/d/1XYsb3mp7i4cLr715llGVElfHz_wbbpjpSXmVr6P8lNA/edit?gid=1391778420#gid=1391778420" target="_blank" class="accent-text">HERE</a>.</p>
+                    <div class="content-inner">
+                        <p>Check the Start Wave sheet <a href="https://docs.google.com/spreadsheets/d/1XYsb3mp7i4cLr715llGVElfHz_wbbpjpSXmVr6P8lNA/edit?gid=1391778420#gid=1391778420" target="_blank" class="accent-text">HERE</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg>
+                        Loop Channel Assignment
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="content-inner">
+                        <p>The Loop Channel Assignment is <a href="https://docs.google.com/spreadsheets/d/1Z4xVx2gqcWqaX_h2xDgRBTwDiTzK9ypVRiJNqTCVAbs/edit?gid=324513968#gid=324513968" target="_blank" class="accent-text">HERE</a>.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -336,7 +364,9 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <p>Access the Inventory sheet <a href="https://docs.google.com/spreadsheets/d/1JMlkQguUmbiTYXNGrfLpVmxekoj6HC1PzkG6qDUAYCE/edit?gid=1810257584#gid=1810257584" target="_blank" class="accent-text">HERE</a>.</p>
+                    <div class="content-inner">
+                        <p>Access the Inventory sheet <a href="https://docs.google.com/spreadsheets/d/1JMlkQguUmbiTYXNGrfLpVmxekoj6HC1PzkG6qDUAYCE/edit?gid=1810257584#gid=1810257584" target="_blank" class="accent-text">HERE</a>.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -352,24 +382,26 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="config-tag">Config 2</div>
-                    <div class="table-wrapper">
-                        <table class="tech-table">
-                            <thead>
-                                <tr>
-                                    <th>Address</th>
-                                    <th>Assignment</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>.21/rdp4hyrox13</td><td>TFCC DB</td></tr>
-                                <tr><td>.21/rdp4hyrox14</td><td>PVG Ben</td></tr>
-                                <tr><td>.21/rdp4hyrox15</td><td>PVG Rein</td></tr>
-                                <tr><td>.21/rdp4hyrox16</td><td>PVG Mitch</td></tr>
-                                <tr><td>.21/rdp4hyrox17</td><td>PVG Darko</td></tr>
-                                <tr><td>.21/rdp4hyrox18</td><td>PVG Burq</td></tr>
-                            </tbody>
-                        </table>
+                    <div class="content-inner">
+                        <div class="config-tag">Config 2</div>
+                        <div class="table-wrapper">
+                            <table class="tech-table">
+                                <thead>
+                                    <tr>
+                                        <th>Address</th>
+                                        <th>Assignment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>.21/rdp4hyrox13</td><td>TFCC DB</td></tr>
+                                    <tr><td>.21/rdp4hyrox14</td><td>PVG Ben</td></tr>
+                                    <tr><td>.21/rdp4hyrox15</td><td>PVG Rein</td></tr>
+                                    <tr><td>.21/rdp4hyrox16</td><td>PVG Mitch</td></tr>
+                                    <tr><td>.21/rdp4hyrox17</td><td>PVG Darko</td></tr>
+                                    <tr><td>.21/rdp4hyrox18</td><td>PVG Burq</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -383,13 +415,15 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="config-tag">Config 2</div>
-                    <div class="content-block">
-                        <p>Lap Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
-                        <p>Finish Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_finish_nat_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
-                        <p>Recovery 1: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
-                        <p>Recovery 2: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
-                        <p>Ceremony: <a href="https://hyrox-screens.r.mikatiming.com/?pid=ceremony_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                    <div class="content-inner">
+                        <div class="config-tag">Config 2</div>
+                        <div class="content-block">
+                            <p>Lap Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                            <p>Finish Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_finish_nat_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                            <p>Recovery 1: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                            <p>Recovery 2: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                            <p>Ceremony: <a href="https://hyrox-screens.r.mikatiming.com/?pid=ceremony_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
