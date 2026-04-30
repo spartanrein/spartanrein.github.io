@@ -27,14 +27,12 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Layout */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Header */
         header {
             margin-bottom: 50px;
             border-bottom: 2px solid var(--accent-color);
@@ -65,7 +63,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* SVG Icons */
         .icon {
             display: inline-block;
             width: 18px;
@@ -86,7 +83,6 @@
             stroke: #666;
         }
 
-        /* Accordion Styles */
         .accordion {
             border-top: 1px solid var(--border-color);
             margin-bottom: 20px;
@@ -112,24 +108,10 @@
             align-items: center;
         }
 
-        .accordion-header:hover {
-            color: var(--accent-color);
-        }
+        .accordion-header:hover { color: var(--accent-color); }
 
-        .accordion-header .title-wrapper {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Active State logic */
-        .accordion-item.active .accordion-header {
-            color: var(--accent-color);
-        }
-
-        .accordion-item.active .chevron {
-            transform: rotate(180deg);
-            stroke: var(--accent-color);
-        }
+        .accordion-item.active .accordion-header { color: var(--accent-color); }
+        .accordion-item.active .chevron { transform: rotate(180deg); stroke: var(--accent-color); }
 
         .accordion-content {
             max-height: 0;
@@ -144,10 +126,7 @@
             padding-bottom: 30px;
         }
 
-        /* Content Specific Styles */
-        .content-block {
-            margin-bottom: 15px;
-        }
+        .content-block { margin-bottom: 15px; }
 
         .label {
             color: #888;
@@ -166,51 +145,48 @@
             transition: border-color 0.2s;
         }
 
-        .accent-text:hover {
-            border-bottom-color: var(--accent-color);
-        }
+        .accent-text:hover { border-bottom-color: var(--accent-color); }
 
-        /* Enhanced Tech Table Styles */
+        /* TECH TABLE - NO LINES VERSION */
         .tech-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
+            border-collapse: collapse; /* Changed from separate to remove spacing */
             margin-top: 15px;
-            background-color: #0a0a0a;
-            border: 1px solid var(--border-color);
+            background-color: #000000;
+            table-layout: fixed;
+            border: none; /* Removed outer border */
         }
 
         .tech-table th {
             text-align: left;
             padding: 14px 12px;
-            background-color: #1a1a1a;
+            background-color: #111111;
             color: var(--accent-color);
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color); /* Kept header line for structure */
         }
 
+        .tech-table th:nth-child(2) { text-align: center; }
+
         .tech-table td {
-            padding: 12px 12px;
-            border-bottom: 1px solid #1a1a1a;
+            padding: 10px 12px;
+            border: none; /* REMOVED ALL TD LINES */
             color: #ffffff;
             font-family: "Courier New", Courier, monospace;
             font-size: 14px;
+            background-color: #000000;
         }
+
+        .tech-table td:nth-child(2) { text-align: center; }
+
+        .tech-table th:nth-child(1), .tech-table td:nth-child(1) { width: 50%; }
+        .tech-table th:nth-child(2), .tech-table td:nth-child(2) { width: 50%; }
 
         .tech-table tr:hover td {
             background-color: #111;
             color: var(--accent-color);
-        }
-
-        .tech-table tr td:first-child {
-            border-left: 2px solid transparent;
-            transition: border-color 0.2s ease;
-        }
-
-        .tech-table tr:hover td:first-child {
-            border-left: 2px solid var(--accent-color);
         }
 
         .config-title {
@@ -231,7 +207,6 @@
             margin-right: 10px;
         }
 
-        /* Responsive */
         @media (min-width: 768px) {
             h1 { font-size: 36px; }
             .accordion-header { font-size: 18px; }
@@ -272,9 +247,6 @@
                         <p>Tel: <a href="tel:+862168818869" style="color:white; text-decoration:none;">+86 21 6881 8869</a></p>
                         <p>Service: <a href="tel:+8619370733609" style="color:white; text-decoration:none;">+86 193 7073 3609</a></p>
                     </div>
-                    <div style="margin-top: 20px;">
-                        <a href="https://maps.google.com/?q=SAVHE+Hotel+Shanghai+World+Expo" target="_blank" class="accent-text">OPEN IN MAPS →</a>
-                    </div>
                 </div>
             </div>
 
@@ -296,9 +268,6 @@
                         <span class="label">Address</span>
                         <p>上海市浦东新区国展路1099号</p>
                         <p style="color: #888;">1099 Guo Zhan Road, Pudong New Area, Shanghai</p>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <a href="https://maps.google.com/?q=Shanghai+World+Expo+Exhibition+and+Convention+Center" target="_blank" class="accent-text">OPEN IN MAPS →</a>
                     </div>
                 </div>
             </div>
@@ -391,19 +360,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const accordionHeaders = document.querySelectorAll('.accordion-header');
-
             accordionHeaders.forEach(header => {
                 header.addEventListener('click', () => {
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
-
-                    // Close all accordion items across all groups
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
                     });
-
-                    // If the clicked item wasn't active, open it
                     if (!isActive) {
                         currentItem.classList.add('active');
                         header.setAttribute('aria-expanded', 'true');
