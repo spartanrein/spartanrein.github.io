@@ -386,9 +386,9 @@
                 <div class="accordion-content">
                     <div class="screen-link-container">
                         <p class="screen-link-header">Config 2:</p>
+                    </div>
                         <p>Lap Screen:</p>
                         <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text view-screen-btn">View Screen</a>
-                    </div>
                 </div>
             </div>
         </div>
