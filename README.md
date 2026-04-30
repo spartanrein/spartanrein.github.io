@@ -59,9 +59,10 @@
         h2 {
             font-size: 20px;
             font-weight: 600;
-            margin: 40px 0 20px;
+            margin: 45px 0 20px;
             color: var(--accent-color);
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* SVG Icons */
@@ -88,6 +89,7 @@
         /* Accordion Styles */
         .accordion {
             border-top: 1px solid var(--border-color);
+            margin-bottom: 20px;
         }
 
         .accordion-item {
@@ -138,7 +140,7 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 800px; 
+            max-height: 1200px; 
             padding-bottom: 30px;
         }
 
@@ -167,9 +169,34 @@
             border-bottom-color: var(--accent-color);
         }
 
-        .phone-link {
-            color: var(--text-color);
-            text-decoration: none;
+        /* Table Styles for Tech Section */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .tech-table th {
+            text-align: left;
+            padding: 12px 8px;
+            border-bottom: 1px solid #444;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .tech-table td {
+            padding: 12px 8px;
+            border-bottom: 1px solid #222;
+            color: #cccccc;
+            font-size: 14px;
+        }
+
+        .config-title {
+            color: var(--accent-color);
+            font-style: italic;
+            font-weight: 800;
+            margin: 20px 0 10px 0;
             font-size: 16px;
         }
 
@@ -188,22 +215,15 @@
             <p class="subtitle">16–17 MAY 2026 | INTERNAL USE ONLY</p>
         </header>
 
-        <h2>Event Logistics</h2>
-
+        <h2>Venue and Accommodation Information</h2>
         <div class="accordion">
-            
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false">
                     <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         Hotel Accommodation
                     </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
                     <div class="content-block">
@@ -211,23 +231,18 @@
                         <p>上海世博萨和酒店</p>
                         <p style="color: #888;">SAVHE Hotel Shanghai World Expo</p>
                     </div>
-
                     <div class="content-block">
                         <span class="label">Address</span>
                         <p>上海市浦东新区雪野路 410 号</p>
                         <p style="color: #888;">No. 410 Xueye Road, Pudong New Area, Shanghai</p>
                     </div>
-
                     <div class="content-block" style="margin-top: 20px; border-top: 1px solid #222; padding-top: 15px;">
                         <span class="label">Contact Numbers</span>
-                        <p>Tel: <a href="tel:+862168818869" class="phone-link">+86 21 6881 8869</a></p>
-                        <p>Service: <a href="tel:+8619370733609" class="phone-link">+86 193 7073 3609</a></p>
+                        <p>Tel: <a href="tel:+862168818869" style="color:white; text-decoration:none;">+86 21 6881 8869</a></p>
+                        <p>Service: <a href="tel:+8619370733609" style="color:white; text-decoration:none;">+86 193 7073 3609</a></p>
                     </div>
-
                     <div style="margin-top: 20px;">
-                        <a href="https://maps.google.com/?q=SAVHE+Hotel+Shanghai+World+Expo" target="_blank" class="accent-text">
-                            OPEN IN MAPS →
-                        </a>
+                        <a href="#" target="_blank" class="accent-text">OPEN IN MAPS →</a>
                     </div>
                 </div>
             </div>
@@ -235,18 +250,10 @@
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false">
                     <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M3 21h18"></path>
-                            <path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"></path>
-                            <path d="M5 21V10.85"></path>
-                            <path d="M19 21V10.85"></path>
-                            <path d="M9 21v-4a2 2 0 0 1 4 0v4"></path>
-                        </svg>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"></path><path d="M5 21V10.85"></path><path d="M19 21V10.85"></path><path d="M9 21v-4a2 2 0 0 1 4 0v4"></path></svg>
                         Event Venue
                     </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
                     <div class="content-block">
@@ -254,17 +261,10 @@
                         <p>上海世博展览馆</p>
                         <p style="color: #888;">SHANGHAI WORLD EXPO EXHIBITION & CONVENTION CENTER</p>
                     </div>
-
                     <div class="content-block">
                         <span class="label">Address</span>
                         <p>上海市浦东新区国展路1099号</p>
                         <p style="color: #888;">1099 Guo Zhan Road, Pudong New Area, Shanghai</p>
-                    </div>
-
-                    <div style="margin-top: 20px;">
-                        <a href="https://maps.google.com/?q=Shanghai+World+Expo+Exhibition+and+Convention+Center" target="_blank" class="accent-text">
-                            OPEN IN MAPS →
-                        </a>
                     </div>
                 </div>
             </div>
@@ -272,14 +272,26 @@
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false">
                     <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                        </svg>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        Floor Plan
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <p>The Floor Plan can be found <a href="https://drive.google.com/file/d/1pqxaQhYyO0VfSDxzC1daZDAVlMFkqmO0/view?usp=sharing" target="_blank" class="accent-text">HERE</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Event Information</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
                         Start Wave
                     </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
                     <p>The link to the start wave is <a href="https://docs.google.com/spreadsheets/d/1XYsb3mp7i4cLr715llGVElfHz_wbbpjpSXmVr6P8lNA/edit?gid=1391778420#gid=1391778420" target="_blank" class="accent-text">HERE</a>.</p>
@@ -289,39 +301,74 @@
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false">
                     <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        Floor Plan
-                    </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <p>The Floor Plan can be found <a href="https://drive.google.com/file/d/1pqxaQhYyO0VfSDxzC1daZDAVlMFkqmO0/view?usp=sharing" target="_blank" class="accent-text">HERE</a>.</p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24">
-                            <path d="M5 3v4M19 3v4M5 21v-4M19 21v-4M2 12h3m14 0h3M7 12c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z"></path>
-                            <path d="M9 12c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3z"></path>
-                        </svg>
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M5 3v4M19 3v4M5 21v-4M19 21v-4M2 12h3m14 0h3M7 12c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z"></path><path d="M9 12c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3z"></path></svg>
                         Loop Channel Assignment
                     </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
                     <p>Loop Channel Assignment is <a href="https://docs.google.com/spreadsheets/d/1Z4xVx2gqcWqaX_h2xDgRBTwDiTzK9ypVRiJNqTCVAbs/edit?gid=324513968#gid=324513968" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
+        </div>
 
+        <h2>Tech</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        Webresults & RDP Assignments
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <p>The 🔗 to the Webresults sheet is <a href="https://docs.google.com/spreadsheets/d/1FWcLjGaQb46gH75hjLZFEiSf4DSFWtBRrUxOduGFez4/edit?gid=682272386#gid=682272386" target="_blank" class="accent-text">HERE</a></p>
+                    
+                    <p class="config-title">Config: 2</p>
+                    
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>RDP / Address</th>
+                                <th>Assignment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>.21/rdp4hyrox13</td>
+                                <td>TFCC DB</td>
+                            </tr>
+                            <tr>
+                                <td>.21/rdp4hyrox14</td>
+                                <td>PVG Ben</td>
+                            </tr>
+                            <tr>
+                                <td>.21/rdp4hyrox15</td>
+                                <td>PVG Rein</td>
+                            </tr>
+                            <tr>
+                                <td>.21/rdp4hyrox16</td>
+                                <td>PVG Mitch</td>
+                            </tr>
+                            <tr>
+                                <td>.21/rdp4hyrox17</td>
+                                <td>PVG Darko</td>
+                            </tr>
+                            <tr>
+                                <td>.21/rdp4hyrox18</td>
+                                <td>PVG Burq</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -334,7 +381,7 @@
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
 
-                    // Close all accordion items to maintain a clean view
+                    // Close all accordion items across all groups
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
