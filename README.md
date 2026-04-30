@@ -11,7 +11,7 @@
             --accent-color: #fceb00; /* Hyrox Yellow */
             --border-color: #333333;
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --content-font-size: 15px; /* Standardized size from Floor Plan */
+            --content-font-size: 15px; /* Standardized size */
         }
 
         * {
@@ -119,7 +119,7 @@
             overflow: hidden;
             transition: max-height 0.3s ease-in-out, padding 0.3s ease;
             color: #e0e0e0;
-            font-size: var(--content-font-size); /* Standardized */
+            font-size: var(--content-font-size);
         }
 
         .accordion-item.active .accordion-content {
@@ -176,7 +176,7 @@
             border: none;
             color: #ffffff;
             font-family: "Courier New", Courier, monospace;
-            font-size: var(--content-font-size); /* Standardized */
+            font-size: var(--content-font-size);
             background-color: #000000;
         }
 
@@ -312,6 +312,23 @@
                 </button>
                 <div class="accordion-content">
                     <p>Loop Channel Assignment is <a href="https://docs.google.com/spreadsheets/d/1Z4xVx2gqcWqaX_h2xDgRBTwDiTzK9ypVRiJNqTCVAbs/edit?gid=324513968#gid=324513968" target="_blank" class="accent-text">HERE</a>.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M17 21l-5-4-5 4"/></svg>
+                        Screen Links
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <p>
+                        <span style="color: var(--accent-color); font-weight: bold;">Config 2:</span><br>
+                        Lap Screen:<br>
+                        <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View Screen</a>
+                    </p>
                 </div>
             </div>
         </div>
