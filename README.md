@@ -12,7 +12,7 @@
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* 100% Fluid Reset */
+        /* Essential Reset for Fluidity */
         * {
             margin: 0;
             padding: 0;
@@ -25,48 +25,47 @@
             font-family: var(--font-family);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            width: 100%;
+            overflow-x: hidden; /* Prevents accidental side-scrolling */
         }
 
+        /* Fluid Container */
         .container {
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px clamp(15px, 4vw, 30px);
+            padding: 20px 15px;
         }
 
         header {
             margin-bottom: 30px;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 15px;
-            width: 100%;
         }
 
         h1 {
-            font-size: clamp(24px, 8vw, 42px);
-            font-weight: 900;
+            font-size: clamp(20px, 6vw, 32px); /* Responsive font size */
+            font-weight: 800;
             text-transform: uppercase;
-            line-height: 1;
-            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 8px;
         }
 
         .subtitle {
             font-size: 11px;
             color: #888;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-top: 5px;
+            letter-spacing: 1px;
         }
 
         h2 {
-            font-size: clamp(16px, 5vw, 20px);
-            font-weight: 700;
-            margin: 40px 0 15px;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 35px 0 15px;
             color: var(--accent-color);
             text-transform: uppercase;
         }
 
+        /* Accordion Structure - Full Width */
         .accordion {
             width: 100%;
             border-top: 1px solid var(--border-color);
@@ -80,8 +79,8 @@
         .accordion-header {
             width: 100%;
             display: flex;
+            justify-content: space-between; /* Pushes content to edges */
             align-items: center;
-            justify-content: space-between;
             padding: 20px 0;
             background: none;
             border: none;
@@ -89,13 +88,14 @@
             cursor: pointer;
             text-align: left;
             font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
         }
 
         .title-wrapper {
             display: flex;
             align-items: center;
-            flex: 1;
-            min-width: 0;
+            padding-right: 10px;
         }
 
         .icon {
@@ -106,11 +106,6 @@
             stroke: currentColor;
             fill: none;
             stroke-width: 2;
-        }
-
-        .accordion-header span {
-            font-size: clamp(15px, 4vw, 18px);
-            font-weight: 600;
         }
 
         .chevron {
@@ -130,93 +125,70 @@
             color: var(--accent-color);
         }
 
+        /* Fluid Content Area */
         .accordion-content {
             width: 100%;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 15px;
+            color: #ccc;
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 2000px;
+            max-height: 2000px; /* Large enough for tables */
             padding-bottom: 25px;
         }
 
-        .content-inner {
-            font-size: 15px;
-            color: #ccc;
+        .content-block {
+            margin-bottom: 18px;
+        }
+
+        .label {
+            color: #777;
+            font-size: 11px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
         }
 
         .accent-text {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
+            word-break: break-all;
         }
 
-        /* --- TECH TABLE STYLING --- */
+        /* Table Responsiveness Fix */
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             margin: 15px 0;
             border: 1px solid var(--border-color);
-            background-color: #000; /* Force black background */
         }
 
         .tech-table {
             width: 100%;
-            min-width: 400px;
+            min-width: 450px; /* Ensures table doesn't squash too much */
             border-collapse: collapse;
             font-family: "Courier New", monospace;
-            background-color: #000;
-            color: #fff;
         }
 
-        .tech-table thead th {
+        .tech-table th {
             background-color: #111;
             color: var(--accent-color);
             text-align: left;
             padding: 12px;
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
-            border-bottom: 2px solid var(--border-color);
         }
 
-        /* Standardize tbody appearance */
-        .tech-table tbody tr {
-            background-color: #000;
-            border-bottom: 1px solid #1a1a1a;
-            transition: background-color 0.2s ease;
-        }
-
-        .tech-table tbody td {
+        .tech-table td {
             padding: 12px;
+            border-bottom: 1px solid #111;
             font-size: 14px;
-            color: #ffffff; /* Explicit white text */
-            vertical-align: middle;
-        }
-
-        /* Column Alignment */
-        .tech-table th:nth-child(2), 
-        .tech-table td:nth-child(2) {
-            text-align: center;
-        }
-
-        /* Standard Hover Styling */
-        .tech-table tbody tr:hover {
-            background-color: #111;
-        }
-
-        .tech-table tbody tr:hover td {
-            color: var(--accent-color);
-        }
-
-        .tech-table tbody tr td:first-child {
-            border-left: 3px solid transparent;
-        }
-
-        .tech-table tbody tr:hover td:first-child {
-            border-left: 3px solid var(--accent-color);
+            color: #fff;
         }
 
         .config-tag {
@@ -225,19 +197,21 @@
             margin-bottom: 10px;
             display: flex;
             align-items: center;
-            font-size: 14px;
         }
 
         .config-tag::before {
             content: '';
-            width: 3px;
-            height: 14px;
+            width: 4px;
+            height: 15px;
             background: var(--accent-color);
             margin-right: 8px;
         }
 
+        /* Desktop Adjustments */
         @media (min-width: 768px) {
             .container { padding: 40px 20px; }
+            h2 { font-size: 20px; }
+            .accordion-header { font-size: 18px; }
         }
     </style>
 </head>
@@ -245,11 +219,9 @@
 
     <div class="container">
         <header>
-            <div class="main-title">
-                <h1>Hyrox</h1>
-                <h1>OPS Page – SH</h1>
-            </div>
-            <p class="subtitle">16–17 MAY 2026 | INTERNAL ONLY</p>
+            <h1>Hyrox</h1>
+            <h1>OPS PAGE – SHANGHAI</h1>
+            <p class="subtitle">16–17 MAY 2026 | INTERNAL USE ONLY</p>
         </header>
 
         <h2>Venue & Accommodation</h2>
@@ -258,15 +230,49 @@
                 <button class="accordion-header">
                     <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Hotel Details</span>
+                        Hotel Details
                     </div>
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="content-inner">
-                        <p>SAVHE Hotel Shanghai World Expo</p>
-                        <a href="tel:+862168818869" class="accent-text">CALL HOTEL →</a>
+                    <div class="content-block">
+                        <span class="label">Hotel</span>
+                        <p>上海世博萨和酒店 (SAVHE Hotel)</p>
                     </div>
+                    <div class="content-block">
+                        <span class="label">Address</span>
+                        <p>上海市浦东新区雪野路 410 号</p>
+                    </div>
+                    <a href="tel:+862168818869" class="accent-text">CALL HOTEL →</a>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        Floor Plan
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <p>The Floor Plan is available <a href="https://drive.google.com/file/d/1pqxaQhYyO0VfSDxzC1daZDAVlMFkqmO0/view?usp=sharing" target="_blank" class="accent-text">HERE</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Event Information</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        Start Waves
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <p>Check the Start Wave sheet <a href="https://docs.google.com/spreadsheets/d/1XYsb3mp7i4cLr715llGVElfHz_wbbpjpSXmVr6P8lNA/edit?gid=1391778420#gid=1391778420" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
         </div>
@@ -277,14 +283,12 @@
                 <button class="accordion-header">
                     <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                        <span>Inventory</span>
+                        Inventory
                     </div>
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="content-inner">
-                        <p>Inventory sheet link <a href="https://docs.google.com/spreadsheets/d/1JMlkQguUmbiTYXNGrfLpVmxekoj6HC1PzkG6qDUAYCE/edit?gid=1810257584#gid=1810257584" target="_blank" class="accent-text">HERE</a>.</p>
-                    </div>
+                    <p>Access the Inventory sheet <a href="https://docs.google.com/spreadsheets/d/1JMlkQguUmbiTYXNGrfLpVmxekoj6HC1PzkG6qDUAYCE/edit?gid=1810257584#gid=1810257584" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
         </div>
@@ -295,31 +299,49 @@
                 <button class="accordion-header">
                     <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                        <span>Webresults & RDP</span>
+                        Webresults & RDP
                     </div>
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="content-inner">
-                        <div class="config-tag">Config 2</div>
-                        <div class="table-wrapper">
-                            <table class="tech-table">
-                                <thead>
-                                    <tr>
-                                        <th>Address</th>
-                                        <th>Assignment</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td>.21/rdp4hyrox13</td><td>TFCC DB</td></tr>
-                                    <tr><td>.21/rdp4hyrox14</td><td>PVG Ben</td></tr>
-                                    <tr><td>.21/rdp4hyrox15</td><td>PVG Rein</td></tr>
-                                    <tr><td>.21/rdp4hyrox16</td><td>PVG Mitch</td></tr>
-                                    <tr><td>.21/rdp4hyrox17</td><td>PVG Darko</td></tr>
-                                    <tr><td>.21/rdp4hyrox18</td><td>PVG Burq</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="config-tag">Config 2</div>
+                    <div class="table-wrapper">
+                        <table class="tech-table">
+                            <thead>
+                                <tr>
+                                    <th>Address</th>
+                                    <th>Assignment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>.21/rdp4hyrox13</td><td>TFCC DB</td></tr>
+                                <tr><td>.21/rdp4hyrox14</td><td>PVG Ben</td></tr>
+                                <tr><td>.21/rdp4hyrox15</td><td>PVG Rein</td></tr>
+                                <tr><td>.21/rdp4hyrox16</td><td>PVG Mitch</td></tr>
+                                <tr><td>.21/rdp4hyrox17</td><td>PVG Darko</td></tr>
+                                <tr><td>.21/rdp4hyrox18</td><td>PVG Burq</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M17 21l-5-4-5 4"/></svg>
+                        Screen Links
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="config-tag">Config 2</div>
+                    <div class="content-block">
+                        <p>Lap Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Finish Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_finish_nat_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Recovery 1: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Recovery 2: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Ceremony: <a href="https://hyrox-screens.r.mikatiming.com/?pid=ceremony_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
                     </div>
                 </div>
             </div>
@@ -331,8 +353,12 @@
             button.addEventListener('click', () => {
                 const item = button.parentElement;
                 const isActive = item.classList.contains('active');
+
+                // Toggle logic
                 document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
+                if (!isActive) {
+                    item.classList.add('active');
+                }
             });
         });
     </script>
