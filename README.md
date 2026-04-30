@@ -151,10 +151,11 @@
 
         .label {
             color: #888;
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
             display: block;
             margin-bottom: 4px;
+            letter-spacing: 0.5px;
         }
 
         .accent-text {
@@ -169,35 +170,65 @@
             border-bottom-color: var(--accent-color);
         }
 
-        /* Table Styles for Tech Section */
+        /* Enhanced Tech Table Styles */
         .tech-table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 15px;
+            background-color: #0a0a0a;
+            border: 1px solid var(--border-color);
         }
 
         .tech-table th {
             text-align: left;
-            padding: 12px 8px;
-            border-bottom: 1px solid #444;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 700;
+            padding: 14px 12px;
+            background-color: #1a1a1a;
+            color: var(--accent-color);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .tech-table td {
-            padding: 12px 8px;
-            border-bottom: 1px solid #222;
-            color: #cccccc;
+            padding: 12px 12px;
+            border-bottom: 1px solid #1a1a1a;
+            color: #ffffff;
+            font-family: "Courier New", Courier, monospace;
             font-size: 14px;
+        }
+
+        .tech-table tr:hover td {
+            background-color: #111;
+            color: var(--accent-color);
+        }
+
+        .tech-table tr td:first-child {
+            border-left: 2px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .tech-table tr:hover td:first-child {
+            border-left: 2px solid var(--accent-color);
         }
 
         .config-title {
             color: var(--accent-color);
-            font-style: italic;
             font-weight: 800;
-            margin: 20px 0 10px 0;
-            font-size: 16px;
+            margin: 25px 0 10px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .config-title::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background: var(--accent-color);
+            margin-right: 10px;
         }
 
         /* Responsive */
@@ -242,7 +273,7 @@
                         <p>Service: <a href="tel:+8619370733609" style="color:white; text-decoration:none;">+86 193 7073 3609</a></p>
                     </div>
                     <div style="margin-top: 20px;">
-                        <a href="#" target="_blank" class="accent-text">OPEN IN MAPS →</a>
+                        <a href="https://maps.google.com/?q=SAVHE+Hotel+Shanghai+World+Expo" target="_blank" class="accent-text">OPEN IN MAPS →</a>
                     </div>
                 </div>
             </div>
@@ -265,6 +296,9 @@
                         <span class="label">Address</span>
                         <p>上海市浦东新区国展路1099号</p>
                         <p style="color: #888;">1099 Guo Zhan Road, Pudong New Area, Shanghai</p>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://maps.google.com/?q=Shanghai+World+Expo+Exhibition+and+Convention+Center" target="_blank" class="accent-text">OPEN IN MAPS →</a>
                     </div>
                 </div>
             </div>
@@ -329,9 +363,9 @@
                     </svg>
                 </button>
                 <div class="accordion-content">
-                    <p>The 🔗 to the Webresults sheet is <a href="https://docs.google.com/spreadsheets/d/1FWcLjGaQb46gH75hjLZFEiSf4DSFWtBRrUxOduGFez4/edit?gid=682272386#gid=682272386" target="_blank" class="accent-text">HERE</a></p>
+                    <p style="margin-bottom: 10px;">The 🔗 to the Webresults sheet is <a href="https://docs.google.com/spreadsheets/d/1FWcLjGaQb46gH75hjLZFEiSf4DSFWtBRrUxOduGFez4/edit?gid=682272386#gid=682272386" target="_blank" class="accent-text">HERE</a></p>
                     
-                    <p class="config-title">Config: 2</p>
+                    <div class="config-title">Config: 2</div>
                     
                     <table class="tech-table">
                         <thead>
@@ -341,30 +375,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>.21/rdp4hyrox13</td>
-                                <td>TFCC DB</td>
-                            </tr>
-                            <tr>
-                                <td>.21/rdp4hyrox14</td>
-                                <td>PVG Ben</td>
-                            </tr>
-                            <tr>
-                                <td>.21/rdp4hyrox15</td>
-                                <td>PVG Rein</td>
-                            </tr>
-                            <tr>
-                                <td>.21/rdp4hyrox16</td>
-                                <td>PVG Mitch</td>
-                            </tr>
-                            <tr>
-                                <td>.21/rdp4hyrox17</td>
-                                <td>PVG Darko</td>
-                            </tr>
-                            <tr>
-                                <td>.21/rdp4hyrox18</td>
-                                <td>PVG Burq</td>
-                            </tr>
+                            <tr><td>.21/rdp4hyrox13</td><td>TFCC DB</td></tr>
+                            <tr><td>.21/rdp4hyrox14</td><td>PVG Ben</td></tr>
+                            <tr><td>.21/rdp4hyrox15</td><td>PVG Rein</td></tr>
+                            <tr><td>.21/rdp4hyrox16</td><td>PVG Mitch</td></tr>
+                            <tr><td>.21/rdp4hyrox17</td><td>PVG Darko</td></tr>
+                            <tr><td>.21/rdp4hyrox18</td><td>PVG Burq</td></tr>
                         </tbody>
                     </table>
                 </div>
