@@ -12,7 +12,7 @@
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Essential Reset for Fluidity */
+        /* Fluid Reset */
         * {
             margin: 0;
             padding: 0;
@@ -23,49 +23,52 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-family);
-            line-height: 1.5;
+            line-height: 1.6; /* Increased for better readability */
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden; /* Prevents accidental side-scrolling */
+            overflow-x: hidden;
+            width: 100%;
         }
 
-        /* Fluid Container */
+        /* Improved Container Spacing */
         .container {
             width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px 15px;
+            padding: 40px clamp(15px, 5vw, 35px); /* More air on top and sides */
         }
 
         header {
-            margin-bottom: 30px;
+            margin-bottom: 45px; /* More separation from header to content */
             border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
 
         h1 {
-            font-size: clamp(20px, 6vw, 32px); /* Responsive font size */
+            font-size: clamp(22px, 7vw, 36px);
             font-weight: 800;
             text-transform: uppercase;
             line-height: 1.1;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 11px;
+            font-size: 12px;
             color: #888;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
+        /* Section Spacing */
         h2 {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 600;
-            margin: 35px 0 15px;
+            margin: 55px 0 25px; /* Big jump between categories */
             color: var(--accent-color);
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* Accordion Structure - Full Width */
+        /* Accordion Spacing */
         .accordion {
             width: 100%;
             border-top: 1px solid var(--border-color);
@@ -79,29 +82,29 @@
         .accordion-header {
             width: 100%;
             display: flex;
-            justify-content: space-between; /* Pushes content to edges */
+            justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 26px 0; /* More height for the "bars" */
             background: none;
             border: none;
             color: var(--text-color);
             cursor: pointer;
             text-align: left;
             font-family: inherit;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 600;
         }
 
         .title-wrapper {
             display: flex;
             align-items: center;
-            padding-right: 10px;
+            padding-right: 15px;
         }
 
         .icon {
             width: 20px;
             height: 20px;
-            margin-right: 12px;
+            margin-right: 14px;
             flex-shrink: 0;
             stroke: currentColor;
             fill: none;
@@ -125,7 +128,7 @@
             color: var(--accent-color);
         }
 
-        /* Fluid Content Area */
+        /* Content Breathing Room */
         .accordion-content {
             width: 100%;
             max-height: 0;
@@ -136,12 +139,12 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 2000px; /* Large enough for tables */
-            padding-bottom: 25px;
+            max-height: 2000px;
+            padding-bottom: 35px; /* Room at the bottom of the open area */
         }
 
         .content-block {
-            margin-bottom: 18px;
+            margin-bottom: 24px; /* More space between info units */
         }
 
         .label {
@@ -149,7 +152,7 @@
             font-size: 11px;
             text-transform: uppercase;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .accent-text {
@@ -162,37 +165,36 @@
         /* Table Styling */
         .table-wrapper {
             width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: 15px 0;
+            margin: 20px 0;
             border: 1px solid var(--border-color);
             background-color: #000;
         }
 
         .tech-table {
             width: 100%;
-            min-width: 450px;
             border-collapse: collapse;
             font-family: "Courier New", monospace;
             background-color: #000000;
+            table-layout: auto;
         }
 
         .tech-table th {
             background-color: #111;
             color: var(--accent-color);
             text-align: left;
-            padding: 12px;
+            padding: 14px 10px;
             font-size: 12px;
             text-transform: uppercase;
             border-bottom: 2px solid var(--border-color);
         }
 
         .tech-table td {
-            padding: 12px;
+            padding: 14px 10px;
             border-bottom: 1px solid var(--border-color);
             font-size: 14px;
             color: #ffffff;
             background-color: #000000;
+            word-break: break-all;
         }
 
         .tech-table tbody tr:hover td {
@@ -203,7 +205,7 @@
         .config-tag {
             color: var(--accent-color);
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
         }
@@ -211,14 +213,13 @@
         .config-tag::before {
             content: '';
             width: 4px;
-            height: 15px;
+            height: 16px;
             background: var(--accent-color);
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
-        /* Desktop Adjustments */
         @media (min-width: 768px) {
-            .container { padding: 40px 20px; }
+            .container { padding: 60px 40px; }
             h2 { font-size: 20px; }
             .accordion-header { font-size: 18px; }
         }
@@ -358,7 +359,6 @@
     </div>
 
     <script>
-        // Force scroll to top on load and prevent scroll memory
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -369,7 +369,6 @@
                 const item = button.parentElement;
                 const isActive = item.classList.contains('active');
 
-                // Toggle logic
                 document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
                 if (!isActive) {
                     item.classList.add('active');
