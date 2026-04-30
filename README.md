@@ -11,7 +11,7 @@
             --accent-color: #fceb00; /* Hyrox Yellow */
             --border-color: #333333;
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --content-font-size: 15px; /* Standardized size */
+            --content-font-size: 15px;
         }
 
         * {
@@ -34,6 +34,7 @@
             padding: 40px 20px;
         }
 
+        /* Header Branding */
         header {
             margin-bottom: 50px;
             border-bottom: 2px solid var(--accent-color);
@@ -64,6 +65,7 @@
             letter-spacing: 0.5px;
         }
 
+        /* Icons */
         .icon {
             display: inline-block;
             width: 18px;
@@ -84,6 +86,7 @@
             stroke: #666;
         }
 
+        /* Accordion Structure */
         .accordion {
             border-top: 1px solid var(--border-color);
             margin-bottom: 20px;
@@ -110,14 +113,13 @@
         }
 
         .accordion-header:hover { color: var(--accent-color); }
-
         .accordion-item.active .accordion-header { color: var(--accent-color); }
         .accordion-item.active .chevron { transform: rotate(180deg); stroke: var(--accent-color); }
 
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-in-out, padding 0.3s ease;
+            transition: max-height 0.3s ease-in-out;
             color: #e0e0e0;
             font-size: var(--content-font-size);
         }
@@ -127,6 +129,7 @@
             padding-bottom: 30px;
         }
 
+        /* Content Blocks */
         .content-block { margin-bottom: 15px; }
 
         .label {
@@ -148,7 +151,7 @@
 
         .accent-text:hover { border-bottom-color: var(--accent-color); }
 
-        /* TECH TABLE */
+        /* Tech Table - Clean Terminal Style */
         .tech-table {
             width: 100%;
             border-collapse: collapse;
@@ -181,7 +184,6 @@
         }
 
         .tech-table td:nth-child(2) { text-align: center; }
-
         .tech-table th:nth-child(1), .tech-table td:nth-child(1) { width: 50%; }
         .tech-table th:nth-child(2), .tech-table td:nth-child(2) { width: 50%; }
 
@@ -190,6 +192,7 @@
             color: var(--accent-color);
         }
 
+        /* Config Styling */
         .config-title {
             color: var(--accent-color);
             font-weight: 800;
@@ -206,6 +209,20 @@
             height: 18px;
             background: var(--accent-color);
             margin-right: 10px;
+        }
+
+        /* Screen Link Material Padding */
+        .screen-link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Material Design vertical rhythm */
+            padding-top: 8px;
+        }
+
+        .view-screen-btn {
+            display: inline-block;
+            padding: 4px 0; 
+            margin-top: 4px;
         }
 
         @media (min-width: 768px) {
@@ -314,23 +331,6 @@
                     <p>Loop Channel Assignment is <a href="https://docs.google.com/spreadsheets/d/1Z4xVx2gqcWqaX_h2xDgRBTwDiTzK9ypVRiJNqTCVAbs/edit?gid=324513968#gid=324513968" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false">
-                    <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M17 21l-5-4-5 4"/></svg>
-                        Screen Links
-                    </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="accordion-content">
-                    <p>
-                        <span style="color: var(--accent-color); font-weight: bold;">Config 2:</span><br>
-                        Lap Screen:<br>
-                        <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View Screen</a>
-                    </p>
-                </div>
-            </div>
         </div>
 
         <h2>Tech</h2>
@@ -372,6 +372,23 @@
                     </table>
                 </div>
             </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M17 21l-5-4-5 4"/></svg>
+                        Screen Links
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="screen-link-container">
+                        <p style="color: var(--accent-color); font-weight: bold;">Config 2:</p>
+                        <p>Lap Screen:</p>
+                        <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text view-screen-btn">View Screen</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -382,10 +399,14 @@
                 header.addEventListener('click', () => {
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
+                    
+                    // Close all accordion items across all sections
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
                     });
+                    
+                    // Toggle current one
                     if (!isActive) {
                         currentItem.classList.add('active');
                         header.setAttribute('aria-expanded', 'true');
