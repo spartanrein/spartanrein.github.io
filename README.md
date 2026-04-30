@@ -34,7 +34,6 @@
             padding: 40px 20px;
         }
 
-        /* Header Branding */
         header {
             margin-bottom: 50px;
             border-bottom: 2px solid var(--accent-color);
@@ -65,7 +64,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Icons */
         .icon {
             display: inline-block;
             width: 18px;
@@ -86,7 +84,6 @@
             stroke: #666;
         }
 
-        /* Accordion Structure */
         .accordion {
             border-top: 1px solid var(--border-color);
             margin-bottom: 20px;
@@ -129,7 +126,6 @@
             padding-bottom: 30px;
         }
 
-        /* Content Blocks */
         .content-block { margin-bottom: 15px; }
 
         .label {
@@ -141,17 +137,19 @@
             letter-spacing: 0.5px;
         }
 
+        /* Fixed Link Styling (Removed border-bottom on hover) */
         .accent-text {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
+            transition: color 0.2s ease;
         }
 
-        .accent-text:hover { border-bottom-color: var(--accent-color); }
+        .accent-text:hover { 
+            color: #ffffff; /* Subtle color shift on hover instead of a line */
+        }
 
-        /* Tech Table - Clean Terminal Style */
+        /* TECH TABLE */
         .tech-table {
             width: 100%;
             border-collapse: collapse;
@@ -192,7 +190,6 @@
             color: var(--accent-color);
         }
 
-        /* Config Styling */
         .config-title {
             color: var(--accent-color);
             font-weight: 800;
@@ -211,18 +208,23 @@
             margin-right: 10px;
         }
 
-        /* Screen Link Material Padding */
+        /* Screen Link Spacing */
         .screen-link-container {
             display: flex;
             flex-direction: column;
-            gap: 8px; /* Material Design vertical rhythm */
+            gap: 2px;
             padding-top: 8px;
+        }
+
+        .screen-link-header {
+            color: var(--accent-color); 
+            font-weight: bold;
+            margin-bottom: 6px;
         }
 
         .view-screen-btn {
             display: inline-block;
-            padding: 4px 0; 
-            margin-top: 4px;
+            padding: 2px 0; 
         }
 
         @media (min-width: 768px) {
@@ -383,7 +385,7 @@
                 </button>
                 <div class="accordion-content">
                     <div class="screen-link-container">
-                        <p style="color: var(--accent-color); font-weight: bold;">Config 2:</p>
+                        <p class="screen-link-header">Config 2:</p>
                         <p>Lap Screen:</p>
                         <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text view-screen-btn">View Screen</a>
                     </div>
@@ -400,13 +402,11 @@
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
                     
-                    // Close all accordion items across all sections
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
                     });
                     
-                    // Toggle current one
                     if (!isActive) {
                         currentItem.classList.add('active');
                         header.setAttribute('aria-expanded', 'true');
