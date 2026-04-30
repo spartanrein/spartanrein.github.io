@@ -159,20 +159,22 @@
             word-break: break-all;
         }
 
-        /* Table Responsiveness Fix */
+        /* Table Styling */
         .table-wrapper {
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             margin: 15px 0;
             border: 1px solid var(--border-color);
+            background-color: #000;
         }
 
         .tech-table {
             width: 100%;
-            min-width: 450px; /* Ensures table doesn't squash too much */
+            min-width: 450px;
             border-collapse: collapse;
             font-family: "Courier New", monospace;
+            background-color: #000000;
         }
 
         .tech-table th {
@@ -182,13 +184,20 @@
             padding: 12px;
             font-size: 12px;
             text-transform: uppercase;
+            border-bottom: 2px solid var(--border-color);
         }
 
         .tech-table td {
             padding: 12px;
-            border-bottom: 1px solid #111;
+            border-bottom: 1px solid var(--border-color);
             font-size: 14px;
-            color: #fff;
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        .tech-table tbody tr:hover td {
+            background-color: #111;
+            color: var(--accent-color);
         }
 
         .config-tag {
@@ -349,6 +358,12 @@
     </div>
 
     <script>
+        // Force scroll to top on load and prevent scroll memory
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
         document.querySelectorAll('.accordion-header').forEach(button => {
             button.addEventListener('click', () => {
                 const item = button.parentElement;
