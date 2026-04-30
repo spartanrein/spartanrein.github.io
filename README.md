@@ -240,7 +240,7 @@
                     <div class="content-block">
                         <span class="label">Address</span>
                         <p>上海市浦东新区雪野路 410 号</p>
-                        <p style="color: #888;">No. 410 Xueye Road,  Pudong New Area, Shanghai</p>
+                        <p style="color: #888;">No. 410 Xueye Road, Pudong New Area, Shanghai</p>
                     </div>
                     <div class="content-block" style="margin-top: 20px; border-top: 1px solid #222; padding-top: 15px;">
                         <span class="label">Contact Numbers</span>
@@ -311,6 +311,25 @@
                 </button>
                 <div class="accordion-content">
                     <p>Loop Channel Assignment is <a href="https://docs.google.com/spreadsheets/d/1Z4xVx2gqcWqaX_h2xDgRBTwDiTzK9ypVRiJNqTCVAbs/edit?gid=324513968#gid=324513968" target="_blank" class="accent-text">HERE</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Logistics</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <div class="title-wrapper">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        Inventory
+                    </div>
+                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-content">
+                    <p>the link <svg class="icon" viewBox="0 0 24 24" style="margin: 0 2px; width: 14px; height: 14px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> to the Inventory sheet is <a href="https://docs.google.com/spreadsheets/d/1JMlkQguUmbiTYXNGrfLpVmxekoj6HC1PzkG6qDUAYCE/edit?gid=1810257584#gid=1810257584" target="_blank" class="accent-text">HERE</a></p>
                 </div>
             </div>
         </div>
