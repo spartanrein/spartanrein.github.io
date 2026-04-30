@@ -137,7 +137,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Fixed Link Styling (Removed border-bottom on hover) */
         .accent-text {
             color: var(--accent-color);
             text-decoration: none;
@@ -146,7 +145,7 @@
         }
 
         .accent-text:hover { 
-            color: #ffffff; /* Subtle color shift on hover instead of a line */
+            color: #ffffff;
         }
 
         /* TECH TABLE */
@@ -208,23 +207,24 @@
             margin-right: 10px;
         }
 
-        /* Screen Link Spacing */
+        /* SCREEN LINKS - ZERO PADDING VERSION */
         .screen-link-container {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 0; /* Removed gap */
             padding-top: 8px;
         }
 
         .screen-link-header {
             color: var(--accent-color); 
             font-weight: bold;
-            margin-bottom: 6px;
+            margin-bottom: 4px; /* Space only after the yellow header */
         }
 
         .view-screen-btn {
             display: inline-block;
-            padding: 2px 0; 
+            padding: 0; /* Removed padding */
+            margin: 0; /* Removed margin */
         }
 
         @media (min-width: 768px) {
@@ -401,12 +401,10 @@
                 header.addEventListener('click', () => {
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
-                    
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
                     });
-                    
                     if (!isActive) {
                         currentItem.classList.add('active');
                         header.setAttribute('aria-expanded', 'true');
