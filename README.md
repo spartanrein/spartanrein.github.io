@@ -1,19 +1,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ops Page - Hyrox Shanghai</title>
     <style>
-        /* Base Reset & Variables */
         :root {
             --bg-color: #000000;
             --text-color: #ffffff;
             --accent-color: #fceb00; /* Hyrox Yellow */
             --border-color: #333333;
             --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --content-font-size: 15px;
         }
 
+        /* Essential Reset for Fluidity */
         * {
             margin: 0;
             padding: 0;
@@ -26,12 +25,15 @@
             font-family: var(--font-family);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Prevents accidental side-scrolling */
         }
 
+        /* Fluid Container */
         .container {
+            width: 100%;
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px 15px; /* Reduced for mobile */
+            padding: 20px 15px;
         }
 
         header {
@@ -41,16 +43,15 @@
         }
 
         h1 {
-            font-size: 22px; /* Scaled down for mobile */
+            font-size: clamp(20px, 6vw, 32px); /* Responsive font size */
             font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.1;
+            margin-bottom: 8px;
         }
 
         .subtitle {
-            font-size: 12px;
+            font-size: 11px;
             color: #888;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -59,161 +60,158 @@
         h2 {
             font-size: 18px;
             font-weight: 600;
-            margin: 30px 0 15px;
+            margin: 35px 0 15px;
             color: var(--accent-color);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .icon {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            margin-right: 10px;
-            vertical-align: middle;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            flex-shrink: 0; /* Prevents icon squashing */
-        }
-
-        .chevron {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.3s ease;
-            stroke: #666;
-        }
-
+        /* Accordion Structure - Full Width */
         .accordion {
+            width: 100%;
             border-top: 1px solid var(--border-color);
-            margin-bottom: 20px;
         }
 
         .accordion-item {
+            width: 100%;
             border-bottom: 1px solid var(--border-color);
         }
 
         .accordion-header {
             width: 100%;
+            display: flex;
+            justify-content: space-between; /* Pushes content to edges */
+            align-items: center;
+            padding: 20px 0;
             background: none;
             border: none;
             color: var(--text-color);
+            cursor: pointer;
             text-align: left;
-            padding: 18px 0; /* Tighter for mobile */
+            font-family: inherit;
             font-size: 16px;
             font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .accordion-header:hover { color: var(--accent-color); }
-        .accordion-item.active .accordion-header { color: var(--accent-color); }
-        .accordion-item.active .chevron { transform: rotate(180deg); stroke: var(--accent-color); }
+        .title-wrapper {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+        }
 
+        .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .chevron {
+            width: 18px;
+            height: 18px;
+            stroke: #666;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.active .chevron {
+            transform: rotate(180deg);
+            stroke: var(--accent-color);
+        }
+
+        .accordion-item.active .accordion-header {
+            color: var(--accent-color);
+        }
+
+        /* Fluid Content Area */
         .accordion-content {
+            width: 100%;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            color: #e0e0e0;
-            font-size: var(--content-font-size);
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 15px;
+            color: #ccc;
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 2000px; /* High enough to accommodate content */
-            padding-bottom: 20px;
+            max-height: 2000px; /* Large enough for tables */
+            padding-bottom: 25px;
         }
 
-        .content-block { margin-bottom: 15px; }
+        .content-block {
+            margin-bottom: 18px;
+        }
 
         .label {
-            color: #888;
+            color: #777;
             font-size: 11px;
             text-transform: uppercase;
             display: block;
-            margin-bottom: 2px;
-            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
         .accent-text {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.2s ease;
-            word-break: break-word;
+            word-break: break-all;
         }
 
-        .accent-text:hover { color: #ffffff; }
-
-        /* Tech Table Mobile Fixes */
-        .table-scroll-container {
+        /* Table Responsiveness Fix */
+        .table-wrapper {
             width: 100%;
-            overflow-x: auto; /* Allows horizontal scroll on tiny screens */
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            margin-top: 15px;
+            margin: 15px 0;
+            border: 1px solid var(--border-color);
         }
 
         .tech-table {
             width: 100%;
-            min-width: 300px; /* Prevents columns from becoming too thin */
+            min-width: 450px; /* Ensures table doesn't squash too much */
             border-collapse: collapse;
-            background-color: #000000;
-            border: none;
+            font-family: "Courier New", monospace;
         }
 
         .tech-table th {
-            text-align: left;
-            padding: 12px 10px;
-            background-color: #111111;
+            background-color: #111;
             color: var(--accent-color);
-            font-size: 11px;
+            text-align: left;
+            padding: 12px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--border-color);
         }
 
         .tech-table td {
-            padding: 10px 10px;
-            color: #ffffff;
-            font-family: "Courier New", Courier, monospace;
-            font-size: 13px; /* Slightly smaller for table data */
-            word-break: break-all; /* Prevents long RDP strings from breaking layout */
-            vertical-align: top;
+            padding: 12px;
+            border-bottom: 1px solid #111;
+            font-size: 14px;
+            color: #fff;
         }
 
-        .tech-table th:nth-child(2), .tech-table td:nth-child(2) {
-            text-align: center;
-        }
-
-        .config-title {
+        .config-tag {
             color: var(--accent-color);
             font-weight: 800;
-            margin: 20px 0 10px 0;
-            font-size: 16px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
 
-        .config-title::before {
-            content: "";
-            display: inline-block;
+        .config-tag::before {
+            content: '';
             width: 4px;
-            height: 16px;
+            height: 15px;
             background: var(--accent-color);
-            margin-right: 10px;
+            margin-right: 8px;
         }
 
-        /* Responsive Breakpoints */
+        /* Desktop Adjustments */
         @media (min-width: 768px) {
             .container { padding: 40px 20px; }
-            h1 { font-size: 36px; }
             h2 { font-size: 20px; }
-            .accordion-header { padding: 24px 0; font-size: 18px; }
-            .tech-table th, .tech-table td { font-size: 14px; padding: 12px; }
+            .accordion-header { font-size: 18px; }
         }
     </style>
 </head>
@@ -221,59 +219,33 @@
 
     <div class="container">
         <header>
-            <h1>OPS PAGE – HYROX SHANGHAI</h1>
+            <h1>OPS PAGE – SHANGHAI</h1>
             <p class="subtitle">16–17 MAY 2026 | INTERNAL USE ONLY</p>
         </header>
 
-        <h2>Venue and Accommodation</h2>
+        <h2>Venue & Accommodation</h2>
         <div class="accordion">
             <div class="accordion-item">
                 <button class="accordion-header">
                     <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        Hotel Accommodation
+                        Hotel Details
                     </div>
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
                     <div class="content-block">
-                        <span class="label">Hotel Name</span>
-                        <p>上海世博萨和酒店</p>
-                        <p style="color: #888;">SAVHE Hotel Shanghai World Expo</p>
+                        <span class="label">Hotel</span>
+                        <p>上海世博萨和酒店 (SAVHE Hotel)</p>
                     </div>
                     <div class="content-block">
                         <span class="label">Address</span>
                         <p>上海市浦东新区雪野路 410 号</p>
-                        <p style="color: #888;">No. 410 Xueye Road, Pudong New Area, Shanghai</p>
                     </div>
-                    <div class="content-block" style="border-top: 1px solid #222; padding-top: 10px;">
-                        <span class="label">Contact</span>
-                        <p>Tel: <a href="tel:+862168818869" style="color:white; text-decoration:none;">+86 21 6881 8869</a></p>
-                    </div>
+                    <a href="tel:+862168818869" class="accent-text">CALL HOTEL →</a>
                 </div>
             </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4"></path><path d="M5 21V10.85"></path><path d="M19 21V10.85"></path><path d="M9 21v-4a2 2 0 0 1 4 0v4"></path></svg>
-                        Event Venue
-                    </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="content-block">
-                        <span class="label">Venue Name</span>
-                        <p>上海世博展览馆</p>
-                        <p style="color: #888;">SHANGHAI WORLD EXPO EXHIBITION & CONVENTION CENTER</p>
-                    </div>
-                    <div class="content-block">
-                        <span class="label">Address</span>
-                        <p>上海市浦东新区国展路1099号</p>
-                    </div>
-                </div>
-            </div>
-
+            
             <div class="accordion-item">
                 <button class="accordion-header">
                     <div class="title-wrapper">
@@ -283,7 +255,7 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <p>The Floor Plan can be found <a href="https://drive.google.com/file/d/1pqxaQhYyO0VfSDxzC1daZDAVlMFkqmO0/view?usp=sharing" target="_blank" class="accent-text">HERE</a>.</p>
+                    <p>The Floor Plan is available <a href="https://drive.google.com/file/d/1pqxaQhYyO0VfSDxzC1daZDAVlMFkqmO0/view?usp=sharing" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
         </div>
@@ -294,25 +266,12 @@
                 <button class="accordion-header">
                     <div class="title-wrapper">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-                        Start Wave
+                        Start Waves
                     </div>
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <p>The link to the start wave is <a href="https://docs.google.com/spreadsheets/d/1XYsb3mp7i4cLr715llGVElfHz_wbbpjpSXmVr6P8lNA/edit?gid=1391778420#gid=1391778420" target="_blank" class="accent-text">HERE</a>.</p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <div class="title-wrapper">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M5 3v4M19 3v4M5 21v-4M19 21v-4M2 12h3m14 0h3M7 12c0-2.8 2.2-5 5-5s5 2.2 5 5-2.2 5-5 5-5-2.2-5-5z"></path><path d="M9 12c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3z"></path></svg>
-                        Loop Channel Assignment
-                    </div>
-                    <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="accordion-content">
-                    <p>Loop Channel Assignment is <a href="https://docs.google.com/spreadsheets/d/1Z4xVx2gqcWqaX_h2xDgRBTwDiTzK9ypVRiJNqTCVAbs/edit?gid=324513968#gid=324513968" target="_blank" class="accent-text">HERE</a>.</p>
+                    <p>Check the Start Wave sheet <a href="https://docs.google.com/spreadsheets/d/1XYsb3mp7i4cLr715llGVElfHz_wbbpjpSXmVr6P8lNA/edit?gid=1391778420#gid=1391778420" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
         </div>
@@ -328,7 +287,7 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <p>The Inventory sheet is <a href="https://docs.google.com/spreadsheets/d/1JMlkQguUmbiTYXNGrfLpVmxekoj6HC1PzkG6qDUAYCE/edit?gid=1810257584#gid=1810257584" target="_blank" class="accent-text">HERE</a>.</p>
+                    <p>Access the Inventory sheet <a href="https://docs.google.com/spreadsheets/d/1JMlkQguUmbiTYXNGrfLpVmxekoj6HC1PzkG6qDUAYCE/edit?gid=1810257584#gid=1810257584" target="_blank" class="accent-text">HERE</a>.</p>
                 </div>
             </div>
         </div>
@@ -344,13 +303,12 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <p>Webresults sheet is <a href="https://docs.google.com/spreadsheets/d/1FWcLjGaQb46gH75hjLZFEiSf4DSFWtBRrUxOduGFez4/edit?gid=682272386#gid=682272386" target="_blank" class="accent-text">HERE</a></p>
-                    <div class="config-title">Config: 2</div>
-                    <div class="table-scroll-container">
+                    <div class="config-tag">Config 2</div>
+                    <div class="table-wrapper">
                         <table class="tech-table">
                             <thead>
                                 <tr>
-                                    <th>RDP / Address</th>
+                                    <th>Address</th>
                                     <th>Assignment</th>
                                 </tr>
                             </thead>
@@ -366,7 +324,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="accordion-item">
                 <button class="accordion-header">
                     <div class="title-wrapper">
@@ -376,27 +334,30 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="config-title">Config 2</div>
-                    <p style="margin-bottom: 5px;">Lap: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
-                    <p style="margin-bottom: 5px;">Finish: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_finish_nat_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
-                    <p style="margin-bottom: 5px;">Recovery 1: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
-                    <p style="margin-bottom: 5px;">Recovery 2: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
-                    <p>Ceremony: <a href="https://hyrox-screens.r.mikatiming.com/?pid=ceremony_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
+                    <div class="config-tag">Config 2</div>
+                    <div class="content-block">
+                        <p>Lap Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Finish Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_finish_nat_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Recovery 1: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Recovery 2: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                        <p>Ceremony: <a href="https://hyrox-screens.r.mikatiming.com/?pid=ceremony_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">View</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
                 const isActive = item.classList.contains('active');
-                
-                // Close others
-                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-                
-                if (!isActive) item.classList.add('active');
+
+                // Toggle logic
+                document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
             });
         });
     </script>
