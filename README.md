@@ -207,26 +207,6 @@
             margin-right: 10px;
         }
 
-        /* SCREEN LINKS - ZERO PADDING VERSION */
-        .screen-link-container {
-            display: flex;
-            flex-direction: column;
-            gap: 0; /* Removed gap */
-            padding-top: 8px;
-        }
-
-        .screen-link-header {
-            color: var(--accent-color); 
-            font-weight: bold;
-            margin-bottom: 4px; /* Space only after the yellow header */
-        }
-
-        .view-screen-btn {
-            display: inline-block;
-            padding: 0; /* Removed padding */
-            margin: 0; /* Removed margin */
-        }
-
         @media (min-width: 768px) {
             h1 { font-size: 36px; }
             .accordion-header { font-size: 18px; }
@@ -260,7 +240,7 @@
                     <div class="content-block">
                         <span class="label">Address</span>
                         <p>上海市浦东新区雪野路 410 号</p>
-                        <p style="color: #888;">No. 410 Xueye Road, Pudong New Area, Shanghai</p>
+                        <p style="color: #888;">No. 410 Xueye Road,  Pudong New Area, Shanghai</p>
                     </div>
                     <div class="content-block" style="margin-top: 20px; border-top: 1px solid #222; padding-top: 15px;">
                         <span class="label">Contact Numbers</span>
@@ -384,11 +364,12 @@
                     <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="accordion-content">
-                    <div class="screen-link-container">
-                        <p class="screen-link-header">Config 2:</p>
-                    </div>
-                        <p>Lap Screen:</p>
-                        <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text view-screen-btn">View Screen</a>
+                    <div class="config-title">Config 2</div>
+                    <p>Lap Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
+                    <p>Finish Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=tfd_screen_finish_nat_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
+                    <p>Recovery Screen 1: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
+                    <p>Recovery Screen 2: <a href="https://hyrox-screens.r.mikatiming.com/?pid=selfietime_vertical_config_2_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
+                    <p>Ceremony Screen: <a href="https://hyrox-screens.r.mikatiming.com/?pid=ceremony_screen_config_2&lang=EN_CAP" target="_blank" class="accent-text">Link</a></p>
                 </div>
             </div>
         </div>
@@ -401,10 +382,12 @@
                 header.addEventListener('click', () => {
                     const currentItem = header.parentElement;
                     const isActive = currentItem.classList.contains('active');
+                    
                     document.querySelectorAll('.accordion-item').forEach(item => {
                         item.classList.remove('active');
                         item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
                     });
+                    
                     if (!isActive) {
                         currentItem.classList.add('active');
                         header.setAttribute('aria-expanded', 'true');
